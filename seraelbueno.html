@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pagina interactiva</title>
+        <style>
+            #titulo {
+                background-color: goldenrod;
+                text-align: center;
+                padding: 10px;
+                color: white;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+            }
+
+            #contenido {
+                display: flex;
+                height: calc(100vh - 56px); 
+            }
+
+            #imagen {
+                background-color: forestgreen;
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #info {
+                background-color: #e4007c;
+                width: 35%;
+                padding: 20px;
+                box-sizing: border-box;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                overflow-y: auto; 
+            }
+
+            #imagenes {
+                width: 100%; 
+                max-width: 250px; 
+                height: auto;
+                margin: 15px auto;
+                object-fit: contain;
+            }
+
+            #mapa{
+                background-image: url(img/mx.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                position: relative;
+                width: 600px;
+                height: 350px;
+            }
+
+            #Chichen-Itza, #Teotihuacan, #Palenque, #Monte-Alban, #Tajin {
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                width: 70px;
+                height: 60px;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+            }
+
+            #Chichen-Itza p, #Teotihuacan p, #Palenque p, #Monte-Alban p, #Tajin p {
+                margin: 0;
+                font-size: 12px;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.7);
+                padding: 2px 5px;
+                border-radius: 3px;
+                white-space: nowrap;
+            }
+
+            #Chichen-Itza { background-image: url(img/chicenitza-removebg-preview.png); top: 228px; left: 528px; }
+            #Teotihuacan { background-image: url(img/teotihuacan.png); top: 180px; left: 300px; }
+            #Palenque { background-image: url(img/palenque.png); top: 300px; left: 444px; }
+            #Monte-Alban { background-image: url(img/montealban.png); top: 288px; left: 372px; }
+            #Tajin { background-image: url(img/tajin.png); top: 204px; left: 384px; }
+            
+            #prueba {
+                cursor: pointer;
+                padding: 10px 20px;
+                background-color: #6c51e6;
+                border: none;
+                border-radius: 8px;
+                font-size: 1.2em;
+                font-weight: bold;
+                text-align: center;
+                margin: 20px auto;
+                color: white;
+                width: 80%;
+            }
+            #prueba img {
+                display: block;
+                margin: 0 auto;
+            }
+            #resultado {
+                display: none; 
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+                border: 2px solid #ffffff;
+                border-radius: 10px;
+                background-color: #a4005e;
+                margin-top: 10px;
+                text-align: center;
+            }
+            .visible {
+                display: flex !important;
+            }
+            .texto-rojo {
+                font-size: 40px;
+                font-weight: bold;
+                color: #ffcc00;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="titulo">
+            <h1>Maravillas Prehispanicas</h1>
+        </div>
+        <div id="contenido">
+            <div id="imagen">
+                <div id="mapa">
+                    <div id="Chichen-Itza"><p>Chichen Itza</p></div>
+                    <div id="Teotihuacan"><p>Teotihuacan</p></div>
+                    <div id="Palenque"><p>Palenque</p></div>
+                    <div id="Monte-Alban"><p>Monte Alban</p></div>
+                    <div id="Tajin"><p>Tajin</p></div>
+                </div>
+            </div>
+            <div id="info">
+                <h2 id="h2">Instrucciones</h2>
+                <p id="parrafo">oprime sobre cada una de las imagenes para ver la informacion de cada una de las maravillas</p>
+                <p id="parrafo2"></p>
+                <p id="parrafo3"></p>
+                <img src="" id="imagenes" alt="">
+
+                <div id="prueba">
+                    <img width="100px" src="img/test.jpg" alt="Iniciar Test" />
+                    <p style="margin: 5px 0 0 0;">INICIAR TEST</p>
+                </div>
+
+                <div id="resultado">
+                    <h2>Tu resultado:</h2>
+                    <span id="calif" class="texto-rojo">0/0</span>
+                    <img id="imagen-resultado" width="200px" src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGR5ZGkxbzlhbXFsMmI1YzRjeWR2cmhhcm12bzBteGN6M3p6dnhsZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/g9582DNuQppxC/giphy.gif" alt="Resultado" />
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            document.getElementById("Chichen-Itza").onclick = function() {
+                document.getElementById("h2").textContent = "Chichen Itza"
+                document.getElementById("parrafo").textContent = "Chichén Itzá es un sitio arqueológico maya, ubicado en la Península de Yucatán, México, famoso mundialmente por su impresionante arquitectura, simbolismo astronómico y su importancia como antiguo centro político y religioso."
+                document.getElementById("parrafo2").textContent = "Su estructura principal es la Pirámide de Kukulcán (El Castillo), considerada una maravilla del mundo y que refleja el avanzado conocimiento maya al funcionar como un calendario. Otros puntos clave incluyen el Cenote Sagrado (usado para rituales y ofrendas) y el Gran Juego de Pelota. Es un sitio declarado Patrimonio de la Humanidad por la UNESCO."
+                document.getElementById("parrafo3").textContent =""
+                document.getElementById("imagenes").setAttribute ('src','img/chichen.jpg');
+            }
+            document.getElementById("Teotihuacan").onclick = function() {
+                document.getElementById("h2").textContent = "Teotihuacan"
+                document.getElementById("parrafo").textContent = "Teotihuacan es una antigua metrópoli prehispánica en el Altiplano Central de México (Estado de México), conocida como la Ciudad de los Dioses."
+                document.getElementById("parrafo2").textContent = "Fue la capital de una poderosa civilización que floreció entre los siglos II y VII d.C. Sus estructuras más importantes son la masiva Pirámide del Sol, la Pirámide de la Luna y el Templo de Quetzalcóatl, todos conectados por la principal avenida, la Calzada de los Muertos."
+                document.getElementById("parrafo3").textContent = "La ciudad fue abandonada misteriosamente antes del auge azteca. Es un Patrimonio Mundial de la UNESCO y un testimonio clave del urbanismo y la religión de Mesoamérica."
+                document.getElementById("imagenes").setAttribute ('src','img/teo.jpg');
+            }
+            document.getElementById("Palenque").onclick = function() {
+                document.getElementById("h2").textContent = "Palenque"
+                document.getElementById("parrafo").textContent = "Palenque es el sitio arqueológico más notable del Periodo Clásico maya, enclavado en la selva de Chiapas, México. La ciudad, conocida originalmente como Lakam Ha, alcanzó su máximo poder e influencia bajo el rey K'inich Janaab' Pakal (Pakal el Grande), en el siglo VII d.C."
+                document.getElementById("parrafo2").textContent = "Su arquitectura se distingue por su elegancia, los techos altos y la calidad artística de sus relieves en estuco, que narran la historia dinástica. El edificio clave es el Templo de las Inscripciones, la única pirámide mesoamericana construida específicamente como mausoleo para un gobernante (Pakal). El Palacio, con su inusual torre de observación, y el Grupo de las Cruces, son también fundamentales."
+                document.getElementById("parrafo3").textContent = "Palenque es un Patrimonio de la Humanidad por la UNESCO y se valora por la inmensa cantidad de inscripciones jeroglíficas que han sido esenciales para descifrar la historia maya."
+                document.getElementById("imagenes").setAttribute ('src','img/pale.jpg');
+            }
+            document.getElementById("Tajin").onclick = function() {
+                 document.getElementById("h2").textContent = "Tajin"
+                 document.getElementById("parrafo").textContent = "El Tajín es la principal zona arqueológica del norte de Veracruz, México, y antigua capital de la cultura totonaca."
+                 document.getElementById("parrafo2").textContent ="Su estructura más famosa es la Pirámide de los Nichos, única en su diseño con 365 nichos que representan un calendario. Destaca también por tener el mayor número de Juegos de Pelota de Mesoamérica. Es un Patrimonio de la Humanidad por la UNESCO y está estrechamente ligada a la ceremonia de los Voladores de Papantla."
+                 document.getElementById("parrafo3").textContent = ""
+                 document.getElementById("imagenes").setAttribute ('src','img/taji.jpg');
+            }
+            document.getElementById("Monte-Alban").onclick = function() {
+                 document.getElementById("h2").textContent = "Monte Alban"
+                 document.getElementById("parrafo").textContent = "Monte Albán fue la antigua capital de la civilización zapoteca, ubicada estratégicamente sobre la cima aplanada de una montaña en Oaxaca, México."
+                 document.getElementById("parrafo2").textContent ="Fue una de las ciudades más importantes de Mesoamérica (500 a.C. - 800 d.C.), destacando por su inmensa Gran Plaza central y su arquitectura con el estilo del tablero escapulario. Su estructura más emblemática es el Edificio J, un observatorio, y la Galería de los Danzantes."
+                 document.getElementById("parrafo3").textContent = "Es un sitio clave para entender la cultura zapoteca y fue declarado Patrimonio de la Humanidad por la UNESCO."
+                 document.getElementById("imagenes").setAttribute ('src','img/monal.jpg');
+            }
+             
+            let puntaje = 0;
+            const totalPreguntas = 10;
+
+            document.getElementById('prueba').onclick = function(){
+                puntaje = 0;
+                
+                alert("Bienvenidos a la prueba de conocimientos");
+                alert("Responde correctamente todas las preguntas para ganar");
+                
+                // Pregunta 1
+                let pregunta1 = prompt("1/10. Chichén Itzá se encuentra en:\nA) El estado de Oaxaca\nB) El estado de Chiapas\nC) La Península de Yucatán");
+                if (pregunta1.toLowerCase() === "c") {
+                    alert("¡Correcto! Chichén Itzá está en la Península de Yucatán.");
+                    puntaje += 1;
+                } else {
+                    alert("Incorrecto. La respuesta correcta es: C) La Península de Yucatán.");
+                }
+
+                // Pregunta 2
+                let pregunta2 = prompt("2/10. ¿Cómo es conocida Teotihuacan? (Escribe: La Ciudad de los...)");
+                if (pregunta2.toLowerCase().includes("dioses")) {
+                    alert("¡Correcto! Teotihuacan es conocida como la Ciudad de los Dioses.");
+                    puntaje += 1;
+                } else {
+                    alert("Incorrecto. La respuesta correcta es: Ciudad de los Dioses.");
+                }
+
+                // Pregunta 3
+                let pregunta3 = prompt("3/10. ¿Cuál es el nombre de la pirámide principal de Chichén Itzá?\nA) Pirámide del Sol\nB) Pirámide de Kukulcán\nC) Templo de Quetzalcóatl");
+                if (pregunta3.toLowerCase() === "b") {
+                    alert("¡Correcto! Es la Pirámide de Kukulcán.");
+                    puntaje += 1;
+                } else {
+                    alert("Incorrecto. La respuesta correcta es: B) Pirámide de Kukulcán.");
+                }
+
+                // Pregunta 4
+                let pregunta4 = prompt("4/10. Monte Albán fue la capital de la civilización... (Escribe el nombre)");
+                if (pregunta4.toLowerCase().includes("zapoteca")) {
+                    alert("¡Correcto! Fue la capital de la civilización zapoteca.");
+                    puntaje += 1;
+                } else {
+                    alert("Incorrecto. La respuesta correcta es: Zapoteca.");
+                }
+
+                // Pregunta 5
+                let pregunta5 = prompt("5/10. ¿Palenque se encuentra en qué estado?\nA) Chiapas\nB) Veracruz\nC) Estado de México");
+                if (pregunta5.toLowerCase() === "a") {
+                    alert("¡Correcto! Palenque se encuentra en Chiapas.");
+                    puntaje += 1;
+                } else {
+                    alert("Incorrecto. La respuesta correcta es: A) Chiapas.");
+                }
+                
+                // Pregunta 6
+                let pregunta6 = prompt("6/10. ¿Cómo se llama la pirámide de El Tajín que es única por tener 365 nichos?");
+                if (pregunta6.toLowerCase().includes("nichos")) {
+                    alert("¡Correcto! Es la Pirámide de los Nichos.");
+                    puntaje += 1;
+                } else {
+                    alert("Incorrecto. La respuesta correcta es: Pirámide de los Nichos.");
+                }
+                
+                // Pregunta 7
+                let pregunta7 = prompt("7/10. El Tajín fue la antigua capital de la cultura... (Escribe el nombre)");
+                if (pregunta7.toLowerCase().includes("totonaca")) {
+                    alert("¡Correcto! Fue la capital de la cultura totonaca.");
+                    puntaje += 1;
+                } else {
+                    alert("Incorrecto. La respuesta correcta es: Totonaca.");
+                }
+
+                // Pregunta 8
+                let pregunta8 = prompt("8/10. Menciona el nombre de la pirámide 'masiva' en Teotihuacan (Pirámide del...)");
+                if (pregunta8.toLowerCase().includes("sol")) {
+                    alert("¡Correcto! La Pirámide del Sol es la masiva.");
+                    puntaje += 1;
+                } else {
+                    alert("Incorrecto. La respuesta correcta es: Pirámide del Sol.");
+                }
+
+                // Pregunta 9
+                let pregunta9 = prompt("9/10. El Edificio J en Monte Albán era conocido por ser un:\nA) Templo funerario\nB) Observatorio\nC) Juego de Pelota");
+                if (pregunta9.toLowerCase() === "b") {
+                    alert("¡Correcto! Era un observatorio.");
+                    puntaje += 1;
+                } else {
+                    alert("Incorrecto. La respuesta correcta es: B) Observatorio.");
+                }
+
+                // Pregunta 10
+                let pregunta10 = prompt("10/10. El Templo de las Inscripciones en Palenque fue el mausoleo del rey... (Escribe el nombre del rey)");
+                if (pregunta10.toLowerCase().includes("pakal")) {
+                    alert("¡Correcto! Es el rey Pakal (o Pakal el Grande).");
+                    puntaje += 1;
+                } else {
+                    alert("Incorrecto. La respuesta correcta es: Pakal el Grande.");
+                }
+                
+                // Mostrar resultado final
+                document.getElementById("calif").textContent = puntaje + "/" + totalPreguntas;
+                document.getElementById("resultado").setAttribute("class", "visible");
+
+                if(puntaje >= 8) {
+                    alert("¡Felicidades! Has respondido correctamente " + puntaje + " preguntas. ¡Excelente conocimiento!");
+                    document.getElementById("imagen-resultado").setAttribute("src", "img/cowdance-cow.gif");
+                } else {
+                    alert("Has respondido " + puntaje + " preguntas correctamente. ¡Sigue explorando las maravillas para mejorar!");
+                    document.getElementById("imagen-resultado").setAttribute("src", "img/pipipi.gif");
+                }
+            };
+        </script>
+    </body>
+</html>
