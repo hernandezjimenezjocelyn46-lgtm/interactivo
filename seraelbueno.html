@@ -124,6 +124,21 @@
                 font-weight: bold;
                 color: #ffcc00;
             }
+            #boton-formulario {
+                cursor: pointer;
+                padding: 10px 20px;
+                background-color:#2E7D32;
+                border: none;
+                border-radius: 8px;
+                font-size: 1.2em;
+                font-weight: bold;
+                text-align: center;
+                margin: 20px auto;
+                color: white;
+                width: 80%;
+                text-decoration: none;
+                display: block;
+            }
         </style>
     </head>
     <body>
@@ -157,6 +172,8 @@
                     <span id="calif" class="texto-rojo">0/0</span>
                     <img id="imagen-resultado" width="200px" src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGR5ZGkxbzlhbXFsMmI1YzRjeWR2cmhhcm12bzBteGN6M3p6dnhsZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/g9582DNuQppxC/giphy.gif" alt="Resultado" />
                 </div>
+
+                <a href="formulario.html" id="boton-formulario">Comentarios</a>
             </div>
         </div>
         
@@ -206,7 +223,6 @@
                 alert("Bienvenidos a la prueba de conocimientos");
                 alert("Responde correctamente todas las preguntas para ganar");
                 
-                // Pregunta 1
                 let pregunta1 = prompt("1/10. Chichén Itzá se encuentra en:\nA) El estado de Oaxaca\nB) El estado de Chiapas\nC) La Península de Yucatán");
                 if (pregunta1.toLowerCase() === "c") {
                     alert("¡Correcto! Chichén Itzá está en la Península de Yucatán.");
@@ -214,8 +230,6 @@
                 } else {
                     alert("Incorrecto. La respuesta correcta es: C) La Península de Yucatán.");
                 }
-
-                // Pregunta 2
                 let pregunta2 = prompt("2/10. ¿Cómo es conocida Teotihuacan? (Escribe: La Ciudad de los...)");
                 if (pregunta2.toLowerCase().includes("dioses")) {
                     alert("¡Correcto! Teotihuacan es conocida como la Ciudad de los Dioses.");
@@ -223,8 +237,6 @@
                 } else {
                     alert("Incorrecto. La respuesta correcta es: Ciudad de los Dioses.");
                 }
-
-                // Pregunta 3
                 let pregunta3 = prompt("3/10. ¿Cuál es el nombre de la pirámide principal de Chichén Itzá?\nA) Pirámide del Sol\nB) Pirámide de Kukulcán\nC) Templo de Quetzalcóatl");
                 if (pregunta3.toLowerCase() === "b") {
                     alert("¡Correcto! Es la Pirámide de Kukulcán.");
@@ -232,8 +244,6 @@
                 } else {
                     alert("Incorrecto. La respuesta correcta es: B) Pirámide de Kukulcán.");
                 }
-
-                // Pregunta 4
                 let pregunta4 = prompt("4/10. Monte Albán fue la capital de la civilización... (Escribe el nombre)");
                 if (pregunta4.toLowerCase().includes("zapoteca")) {
                     alert("¡Correcto! Fue la capital de la civilización zapoteca.");
@@ -241,8 +251,6 @@
                 } else {
                     alert("Incorrecto. La respuesta correcta es: Zapoteca.");
                 }
-
-                // Pregunta 5
                 let pregunta5 = prompt("5/10. ¿Palenque se encuentra en qué estado?\nA) Chiapas\nB) Veracruz\nC) Estado de México");
                 if (pregunta5.toLowerCase() === "a") {
                     alert("¡Correcto! Palenque se encuentra en Chiapas.");
@@ -250,8 +258,6 @@
                 } else {
                     alert("Incorrecto. La respuesta correcta es: A) Chiapas.");
                 }
-                
-                // Pregunta 6
                 let pregunta6 = prompt("6/10. ¿Cómo se llama la pirámide de El Tajín que es única por tener 365 nichos?");
                 if (pregunta6.toLowerCase().includes("nichos")) {
                     alert("¡Correcto! Es la Pirámide de los Nichos.");
@@ -259,8 +265,6 @@
                 } else {
                     alert("Incorrecto. La respuesta correcta es: Pirámide de los Nichos.");
                 }
-                
-                // Pregunta 7
                 let pregunta7 = prompt("7/10. El Tajín fue la antigua capital de la cultura... (Escribe el nombre)");
                 if (pregunta7.toLowerCase().includes("totonaca")) {
                     alert("¡Correcto! Fue la capital de la cultura totonaca.");
@@ -268,8 +272,6 @@
                 } else {
                     alert("Incorrecto. La respuesta correcta es: Totonaca.");
                 }
-
-                // Pregunta 8
                 let pregunta8 = prompt("8/10. Menciona el nombre de la pirámide 'masiva' en Teotihuacan (Pirámide del...)");
                 if (pregunta8.toLowerCase().includes("sol")) {
                     alert("¡Correcto! La Pirámide del Sol es la masiva.");
@@ -295,8 +297,6 @@
                 } else {
                     alert("Incorrecto. La respuesta correcta es: Pakal el Grande.");
                 }
-                
-                // Mostrar resultado final
                 document.getElementById("calif").textContent = puntaje + "/" + totalPreguntas;
                 document.getElementById("resultado").setAttribute("class", "visible");
 

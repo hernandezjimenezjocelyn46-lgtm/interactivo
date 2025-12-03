@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Simple</title>
+</head>
+<body>
+
+    <form action="conexion" method="post">
+        <h2>Deja tu Comentario</h2>
+
+        <div>
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="comentario">Comentario:</label><br>
+            <textarea id="comentario" name="comentario" rows="5" cols="30" required></textarea>
+        </div>
+
+        <br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+</body>
+</html>

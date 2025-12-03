@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Registro de personas</title>
+</head>
+<body>
+<?php
+$nombre= $_POST["nombre"];
+$comentario =$_POST["comentario"];
+
+$conexion = mysqli_connect("if0_40528729","sql113.infinityfree.com", "BDJqeOOwjW7A", "if0_40528729_interactivo");
+if(!$conexion) {
+echo "Error: No se pudo conectar a MySQL.";
+echo "errno de depuración: ", mysqli_connect_errno();
+echo "error de depuración: ", mysqli_connect_error();
+exit;
+}
+$sql = "INSERT INTO persona (nombre, comentario) values ('$nombre','$comentario')";
+if (mysqli_query($conexion, $sql)) {
+    echo "Registro exitoso";
+}else{
+    echo "Error:"."<br>". mysqli_error($conexion);
+
+}
+?>
+
+</body>
+</html>
