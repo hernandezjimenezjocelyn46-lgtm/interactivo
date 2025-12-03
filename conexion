@@ -7,7 +7,7 @@
 $nombre= $_POST["nombre"];
 $comentario =$_POST["comentario"];
 
-$conexion = mysqli_connect("if0_40528729","sql113.infinityfree.com", "BDJqeOOwjW7A", "if0_40528729_interactivo");
+$conexion = mysqli_connect("sql113.infinityfree.com","if0_40528729", "BDJqeOOwjW7A", "if0_40528729_interactivo");
 if(!$conexion) {
 echo "Error: No se pudo conectar a MySQL.";
 echo "errno de depuración: ", mysqli_connect_errno();
